@@ -1,0 +1,2 @@
+1. Create custom control to visualize photos as (buttons?)
+2. Change comboBox Selected event to update wrappanel in proper way.

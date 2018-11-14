@@ -1,0 +1,5 @@
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumLibrary\bin\Debug\AlbumLibrary.dll
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumLibrary\bin\Debug\AlbumLibrary.pdb
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumLibrary\obj\Debug\AlbumLibrary.dll
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumLibrary\obj\Debug\AlbumLibrary.pdb
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumLibrary\obj\Debug\AlbumLibrary.csprojResolveAssemblyReference.cache

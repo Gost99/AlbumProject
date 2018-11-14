@@ -1,0 +1,20 @@
+﻿<Window x:Class="AlbumUI.AddFriendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        Title="AddFriendWindow" Height="300" Width="300">
+        
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock FontSize="30" TextAlignment="Center">Users</TextBlock>
+            <ListBox Margin="10" Name="usersList" ItemsSource="{DynamicResource ResourceKey=userList}">
+                <ListBox.Resources>
+                    <col:ArrayList x:Key="userList"/>
+
+                </ListBox.Resources>
+            </ListBox>
+            <Button Style="{StaticResource DefaultButton}" Margin="30" Content="Add" FontSize="20" Click="ButtonBase_OnClick"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

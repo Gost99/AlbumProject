@@ -1,0 +1,13 @@
+﻿<Window x:Class="AlbumUI.AddAlbumWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddAlbumWindow" Height="300" Width="300">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock FontSize="30" TextAlignment="Center">New Album</TextBlock>
+            <TextBox x:Name="tbNewAlbumTitle" Margin="30 40 30 0" FontSize="20"/>
+            <Button Style="{StaticResource DefaultButton}" IsDefault="True" Margin="30" Content="Add" FontSize="20" Click="ButtonBase_OnClick"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
