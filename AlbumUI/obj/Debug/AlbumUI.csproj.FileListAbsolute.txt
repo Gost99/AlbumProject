@@ -26,3 +26,5 @@ E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\
 E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\SignUpWindow.g.cs
 E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\SignInWindow.baml
 E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\SignInWindow.g.cs
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\StartupDownloadWindow.baml
+E:\STUDY HARD\3 Семестр\ООП\Лаба 1\AlbumProject\AlbumUI\obj\Debug\StartupDownloadWindow.g.cs

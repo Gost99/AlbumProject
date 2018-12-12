@@ -1,0 +1,21 @@
+﻿<Window x:Class="AlbumUI.StartupDownloadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StartupDownload" Height="300" Width="300" WindowStartupLocation="CenterScreen"> 
+    <Grid>
+        <StackPanel>
+            <TextBlock Margin ="0 60 0 0" FontSize="20" TextAlignment="Center">Choose serialization type
+            </TextBlock>
+
+            <Grid Margin="0 60 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnChooseXML" Style="{StaticResource DefaultButton}" Margin="10" Grid.Column="0" Content="XML" Click="BtnChooseXML_Click"/>
+                <Button x:Name="btnChooseJSON" Style="{StaticResource DefaultButton}" Margin="10" Grid.Column="1" Content="JSON" Click="BtnChooseJSON_Click"/>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Window>

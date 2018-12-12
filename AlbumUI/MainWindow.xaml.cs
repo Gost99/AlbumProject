@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AlbumLibrary;
+using System.ComponentModel;
 
 namespace AlbumUI
 {
@@ -24,15 +25,12 @@ namespace AlbumUI
         private User _currUser;
         public MainWindow(string userName, string password)
         {
-            _currUser = User.Users.Find(x => x.Name == userName);
-            _currUser.CreateAlbum("Friends");
-            _currUser.CreateAlbum("Family");
-            _currUser.CreateAlbum("Parties");
-
-            _currUser.albumList[0].AddComment(new User("alex","lol"),"Perfect photo!");
-
             InitializeComponent();
+            
+            _currUser = User.Users.Find(x => x.Name == userName);
 
+
+            
             RefreshAlbumLists();
             tblckCurrUser.Text = _currUser.Name;
             
@@ -122,6 +120,32 @@ namespace AlbumUI
             resGrid.Children.Add(resImg);
             PhotosWrap.Children.Add(resGrid);
             RefreshAlbumLists();
+        }
+
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            //выбрать в каком формате загружать данные;
+            //throw new NotImplementedException();
+            MessageBoxResult result = MessageBox.Show("Сохранить изменения?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    if (Serializer<User>.CurrentType == SerializationType.XML)
+                    {
+                        User.SaveUsers(SerializationType.XML);
+                        Authorization.SaveLoggedUsers(SerializationType.XML);
+                    }
+                    else
+                    {
+                        User.SaveUsers(SerializationType.JSON);
+                        Authorization.SaveLoggedUsers(SerializationType.JSON);
+                    }
+
+                    break;
+                case MessageBoxResult.No:
+                    Close();
+                    break;
+            }
         }
     }
 }

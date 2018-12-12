@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using AlbumLibrary;
 
 namespace AlbumUI
 {
@@ -13,5 +14,6 @@ namespace AlbumUI
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

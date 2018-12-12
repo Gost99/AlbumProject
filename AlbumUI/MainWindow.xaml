@@ -5,8 +5,12 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:album="clr-namespace:AlbumLibrary;assembly=AlbumLibrary"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        Closing="MainWindow_Closing"
         Icon="Images/../media.ico"
         Title="Photo Album" Height="600" Width="1000">
+        
+        
+        
         
 
     <Window.Resources>

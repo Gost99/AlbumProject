@@ -22,14 +22,15 @@ namespace AlbumUI
     /// </summary>
     public partial class SignUpWindow : Window
     {
-        public Authorization auth = new Authorization();
+        public Authorization auth = Authorization.getInstance();
 
         public SignUpWindow()
         {
+            //Вызвать метод дважды, и в деструкторе и при закрытие окна.
+            new StartupDownloadWindow().ShowDialog();
+
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            auth.SignUp("Misha", "kek");
-
 
         }
 

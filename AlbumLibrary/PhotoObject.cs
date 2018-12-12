@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlbumLibrary
 {
-    
+    [DataContract]
     public abstract class PhotoObject
     {
+        [DataMember]
         public string Title { get; set; }
 
         // for lab 4 comments is anonymous comments list
+        [DataMember]
         public List<Comment> Comments { get; set; }
-
+        [DataMember]
         public readonly Guid Id;
 
         public PhotoObject() : this("") { }

@@ -1,2 +1,12 @@
 1. Create custom control to visualize photos as (buttons?)
 2. Change comboBox Selected event to update wrappanel in proper way.
+
+	Lab6 variant to realize:
+
+1. Создать интерфейс IJSONSerializer, ITXTSerializer, IXMLSerizalizer, в каждом написать по методу Serialize, Deserialize
+	в классах сделать реализацию каждого метода, в основной программе явно определять какой интерфейс, и соответственно метод использовать.
+	Пример: ((IJSONSerializer)user1).Serialize();
+
+2. Использовать паттерн декоратор, ???????? Not correct.
+
+3. ...

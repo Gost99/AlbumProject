@@ -3,20 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace AlbumLibrary
 {
     public enum Tags { None, Holiday, Travels, Party, Family };
 
+    [DataContract]
     public class Photo : PhotoObject
     {
+        [DataMember]
         public string Description { get; set; }
-        public string Path { get; private set; }
-        public DateTime Date { get; set; }
-        public Tags Tag { get; set; }
         
+        [DataMember]
+        public string Path { get; private set; }
+        
+        [DataMember]
+        public DateTime Date { get; set; }
+        
+        [DataMember]
+        public Tags Tag { get; set; }
 
-        public Photo() : base()
+        ~Photo()
+        {
+            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(Photo));
+
+            //using (FileStream fs = new FileStream("C:\\Users\\Гост\\Desktop\\photos.xml",FileMode.OpenOrCreate))
+            //{
+            //    xmlSerializer.Serialize(fs,this);
+            //}
+
+        }
+
+
+        public Photo()
+            : base()
         {
             this.Description = String.Empty;
             this.Path = String.Empty;

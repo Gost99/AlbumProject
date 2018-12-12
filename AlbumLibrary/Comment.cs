@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlbumLibrary
 {
+    [DataContract]
     public class Comment
     {
         public static List<Comment> Comments = new List<Comment>();
 
+        [DataMember]
         public readonly Guid Id;
+        [DataMember]
         public User Sender { get; private set; }
-
+        [DataMember]
         public string MessageText { get; private set; }
 
         public Comment() : this(null,"") { }

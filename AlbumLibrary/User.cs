@@ -4,29 +4,48 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Dynamic;
 using System.Linq;
-using System.Net.Mime;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Runtime.Serialization;
 
 namespace AlbumLibrary
 {
+    public enum SerializationType
+    {
+        XML = 1,
+        JSON
+    }
+
+
+
+    [DataContract]
     public class User
     {
         static public List<User> Users = new List<User>();
+        private static Serializer<User> userSerializer = new Serializer<User>();
 
+        [DataMember]
         public readonly Guid Id;
+        
+        [DataMember]
         public string Name { get; set; }
 
         private string _password;
-        public List<User> friendList { get; private set; }
-        public List<Album> albumList { get; private set; }
-
+       
+        [DataMember]
         public string Password
         {
             get { return _password; }
+            private set { _password = value; }
         }
 
+        //private List<Guid> _friendIds;
+        [DataMember]
+        public List<User> friendList { get; private set; }
+        [DataMember]
+        public List<Album> albumList { get; private set; }
 
         public User() : this("","") { }
 
@@ -54,7 +73,7 @@ namespace AlbumLibrary
 
         public void AddFriend(User _FriendToAdd)
         {
-            friendList.Add(_FriendToAdd);
+           friendList.Add(_FriendToAdd);
         }
 
         public void DeleteFriend(Guid idToDelete)
@@ -73,7 +92,7 @@ namespace AlbumLibrary
             var res = new List<User>();
             foreach (var user in Users)
             {
-                if(user.friendList.Count == 0)
+                if (user.friendList.Count == 0)
                     res.Add(user);
             }
 
@@ -90,6 +109,34 @@ namespace AlbumLibrary
             }
 
             return res;
+        }
+
+        public static void SaveUsers(SerializationType sType = SerializationType.XML)
+        {
+            switch (sType)
+            {
+                case SerializationType.XML:
+                    ((IXMLSerializer)userSerializer).Serialize(Users, "Users.xml");
+                    break;
+                case SerializationType.JSON:
+                    ((IJSONSerializer)userSerializer).Serialize(Users, "Users.json");
+                    break;
+            }
+            
+        }
+
+        public static void LoadUsers(SerializationType sType = SerializationType.XML)
+        {
+            switch (sType)
+            {
+                case SerializationType.XML:
+                    ((IXMLSerializer)userSerializer).Deserialize(out Users, "Users.xml");
+                    break;
+                case SerializationType.JSON:
+                    ((IJSONSerializer)userSerializer).Deserialize(out Users, "Users.json");
+                    break;
+            }
+            
         }
 
     }

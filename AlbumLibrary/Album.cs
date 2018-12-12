@@ -5,20 +5,30 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace AlbumLibrary
 {
+    [DataContract]
     public class Album : PhotoObject, IEnumerable
     {
         private int _photoCounter;
-
+        [DataMember]
         public Photo FrontImage;
-
+        [DataMember]
         public List<Photo> Photos;
-
+        [DataMember]
         public int Count
         {
             get { return _photoCounter; }
+            private set { _photoCounter = value; }
+        }
+
+        ~Album()
+        {
+
         }
 
         public Album() : base() { }
